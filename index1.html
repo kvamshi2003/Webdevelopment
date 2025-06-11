@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Learning Journey - Web Development Basics</title>
+    <style>
+        /* CSS Styling */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.95);
+            margin-top: 20px;
+            margin-bottom: 20px;
+            border-radius: 15px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding: 30px 0;
+            background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+            border-radius: 10px;
+            color: white;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            font-size: 3em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            animation: fadeInDown 1s ease-out;
+        }
+
+        h2 {
+            color: #4a4a4a;
+            font-size: 2.2em;
+            margin: 30px 0 20px 0;
+            border-bottom: 3px solid #ff6b6b;
+            padding-bottom: 10px;
+            animation: slideInLeft 1s ease-out;
+        }
+
+        h3 {
+            color: #666;
+            font-size: 1.5em;
+            margin: 20px 0 15px 0;
+        }
+
+        p {
+            margin-bottom: 20px;
+            font-size: 1.1em;
+            text-align: justify;
+            animation: fadeIn 1.5s ease-out;
+        }
+
+        .highlight {
+            background: linear-gradient(120deg, #a8edea 0%, #fed6e3 100%);
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+            border-left: 5px solid #ff6b6b;
+        }
+
+        .image-container {
+            text-align: center;
+            margin: 30px 0;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 15px;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        img:hover {
+            transform: scale(1.05);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .links-section {
+            background: #f8f9fa;
+            padding: 25px;
+            border-radius: 10px;
+            margin: 30px 0;
+        }
+
+        a {
+            color: #667eea;
+            text-decoration: none;
+            font-weight: bold;
+            padding: 10px 15px;
+            margin: 5px;
+            border: 2px solid #667eea;
+            border-radius: 25px;
+            display: inline-block;
+            transition: all 0.3s ease;
+        }
+
+        a:hover {
+            background: #667eea;
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
+        }
+
+        .interactive-section {
+            background: linear-gradient(45deg, #ffeaa7, #fab1a0);
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            margin: 30px 0;
+        }
+
+        .btn {
+            background: linear-gradient(45deg, #ff6b6b, #ee5a52);
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 30px;
+            font-size: 1.2em;
+            font-weight: bold;
+            cursor: pointer;
+            margin: 10px;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(255, 107, 107, 0.3);
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(255, 107, 107, 0.4);
+            background: linear-gradient(45deg, #ee5a52, #ff6b6b);
+        }
+
+        .btn:active {
+            transform: translateY(-1px);
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+
+        .skill-card {
+            background: white;
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+            border-top: 4px solid #4ecdc4;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 40px;
+            padding: 20px;
+            background: #333;
+            color: white;
+            border-radius: 10px;
+        }
+
+        /* Animations */
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .container {
+                margin: 10px;
+                padding: 15px;
+            }
+            
+            h1 {
+                font-size: 2.2em;
+            }
+            
+            h2 {
+                font-size: 1.8em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🚀 My Web Development Journey</h1>
+            <p style="font-size: 1.2em; margin: 0;">Learning HTML, CSS & JavaScript Fundamentals</p>
+        </header>
+
+        <main>
+            <section>
+                <h2>📚 About This Learning Project</h2>
+                <p>Welcome to my foundational web development project! This webpage demonstrates the core concepts of modern web development, combining <strong>HTML structure</strong>, <strong>CSS styling</strong>, and <strong>JavaScript interactivity</strong> into one cohesive experience.</p>
+                
+                <div class="highlight">
+                    <h3>🎯 Learning Objectives Achieved:</h3>
+                    <p>✅ <strong>HTML Structure:</strong> Organized content with semantic elements<br>
+                    ✅ <strong>CSS Styling:</strong> Applied modern design with colors, fonts, and layouts<br>
+                    ✅ <strong>JavaScript Interactivity:</strong> Added dynamic user interactions</p>
+                </div>
+            </section>
+
+            <section>
+                <h2>🎨 Visual Elements & Images</h2>
+                <p>Images play a crucial role in web design. Below is a demonstration of how images can be styled and made responsive using CSS:</p>
+                
+                <div class="image-container">
+                    <img src="https://via.placeholder.com/600x300/667eea/ffffff?text=Web+Development+Journey" alt="Web Development Learning Journey" />
+                    <p><em>A visual representation of the web development learning process</em></p>
+                </div>
+            </section>
+
+            <section>
+                <h2>🔗 Important Learning Resources</h2>
+                <div class="links-section">
+                    <h3>Essential Web Development Links:</h3>
+                    <p>Here are some valuable resources for continued learning:</p>
+                    <a href="https://developer.mozilla.org/en-US/docs/Web/HTML" target="_blank">MDN HTML Guide</a>
+                    <a href="https://developer.mozilla.org/en-US/docs/Web/CSS" target="_blank">MDN CSS Reference</a>
+                    <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank">MDN JavaScript Docs</a>
+                    <a href="https://www.w3schools.com/" target="_blank">W3Schools Tutorials</a>
+                </div>
+            </section>
+
+            <section>
+                <h2>💡 Skills Demonstration</h2>
+                <div class="skills-grid">
+                    <div class="skill-card">
+                        <h3>🏗 HTML Structure</h3>
+                        <p>This page uses semantic HTML elements including headers, sections, paragraphs, images, and links to create a well-organized document structure that's accessible and SEO-friendly.</p>
+                    </div>
+                    <div class="skill-card">
+                        <h3>🎨 CSS Styling</h3>
+                        <p>Advanced CSS techniques including gradients, animations, flexbox, grid layouts, hover effects, and responsive design principles create an engaging visual experience.</p>
+                    </div>
+                    <div class="skill-card">
+                        <h3>⚡ JavaScript Magic</h3>
+                        <p>Interactive elements powered by JavaScript provide dynamic user experiences, from simple alerts to complex DOM manipulations and event handling.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="interactive-section">
+                <h2>🎮 Interactive JavaScript Demo</h2>
+                <p>Experience the power of JavaScript with these interactive buttons:</p>
+                
+                <button class="btn" onclick="showWelcomeAlert()">👋 Welcome Message</button>
+                <button class="btn" onclick="showTimeAlert()">⏰ Current Time</button>
+                <button class="btn" onclick="changeBackgroundColor()">🌈 Change Colors</button>
+                <button class="btn" onclick="showSkillsAlert()">🎯 My Skills</button>
+            </section>
+
+            <section>
+                <h2>📈 Next Steps in My Learning Journey</h2>
+                <p>Having mastered these foundational concepts, I'm ready to explore more advanced topics:</p>
+                
+                <div class="highlight">
+                    <p><strong>🔜 Coming Up Next:</strong></p>
+                    <p>• Responsive Design & Mobile-First Approach<br>
+                    • Modern CSS Frameworks (Bootstrap, Tailwind)<br>
+                    • Advanced JavaScript (ES6+, DOM Manipulation)<br>
+                    • Introduction to React.js<br>
+                    • Backend Development with Node.js</p>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <p>&copy; 2025 My Web Development Learning Journey | Built with HTML, CSS & JavaScript</p>
+            <p>🎉 Successfully demonstrating foundational web development skills!</p>
+        </footer>
+    </div>
+
+    <script>
+        // JavaScript for Interactivity
+        
+        // Welcome alert function
+        function showWelcomeAlert() {
+            alert("🎉 Welcome to my web development learning project!\n\nThis demonstrates the integration of HTML, CSS, and JavaScript working together to create interactive web experiences.");
+        }
+        
+        // Current time alert function
+        function showTimeAlert() {
+            const now = new Date();
+            const timeString = now.toLocaleString();
+            alert("⏰ Current Date & Time:\n" + timeString + "\n\nThis demonstrates JavaScript's ability to work with dates and provide dynamic content!");
+        }
+        
+        // Background color changer function
+        function changeBackgroundColor() {
+            const colors = [
+                'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+                'linear-gradient(135deg, #f093fb 0%, #f5576c 100%)',
+                'linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)',
+                'linear-gradient(135deg, #43e97b 0%, #38f9d7 100%)',
+                'linear-gradient(135deg, #fa709a 0%, #fee140 100%)'
+            ];
+            
+            const randomColor = colors[Math.floor(Math.random() * colors.length)];
+            document.body.style.background = randomColor;
+            
+            alert("🌈 Background color changed!\n\nThis demonstrates JavaScript's ability to manipulate CSS styles dynamically. The page background has been updated with a new gradient!");
+        }
+        
+        // Skills demonstration alert
+        function showSkillsAlert() {
+            alert("🎯 Skills Demonstrated in This Project:\n\n" +
+                  "✅ HTML: Semantic structure, headings, paragraphs, images, links\n" +
+                  "✅ CSS: Styling, colors, fonts, layouts, animations, responsive design\n" +
+                  "✅ JavaScript: Event handling, DOM manipulation, functions, alerts\n\n" +
+                  "This project successfully combines all three technologies!");
+        }
+        
+        // Add some interactive effects when the page loads
+        window.addEventListener('load', function() {
+            console.log("🚀 Page loaded successfully!");
+            console.log("This webpage demonstrates HTML structure, CSS styling, and JavaScript interactivity!");
+            
+            // Add a subtle welcome effect
+            setTimeout(function() {
+                const header = document.querySelector('header');
+                header.style.transform = 'scale(1.02)';
+                setTimeout(function() {
+                    header.style.transform = 'scale(1)';
+                }, 200);
+            }, 500);
+        });
+        
+        // Add hover effects to skill cards using JavaScript
+        document.addEventListener('DOMContentLoaded', function() {
+            const skillCards = document.querySelectorAll('.skill-card');
+            
+            skillCards.forEach(card => {
+                card.addEventListener('mouseenter', function() {
+                    this.style.borderTop = '4px solid #ff6b6b';
+                });
+                
+                card.addEventListener('mouseleave', function() {
+                    this.style.borderTop = '4px solid #4ecdc4';
+                });
+            });
+        });
+    </script>
+</body>
+</html>
