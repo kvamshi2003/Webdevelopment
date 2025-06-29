@@ -1,0 +1,213 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zomato Food Delivery</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Navigation Bar */
+        nav {
+            background-color: #e74c3c;
+            padding: 10px;
+            text-align: center;
+        }
+
+        nav button {
+            background-color: #fff;
+            color: #e74c3c;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            margin: 0 10px;
+            font-size: 16px;
+        }
+
+        nav button:hover {
+            background-color: #c0392b;
+            color: #fff;
+        }
+
+        /* Section Styles */
+        section {
+            display: none; /* Initially hide all sections */
+            padding: 20px;
+        }
+
+        /* Home Section Color (Light Red) */
+        #home {
+            background-color: #f4f8f9; /* Light Red */
+            text-align: center;
+        }
+
+        /* Menu Section Color (Light Sky Blue) */
+        #menu {
+            background-color: #e3f2f5; /* Light Sky Blue */
+        }
+
+        /* Quiz Section Color (White with Black Text) */
+        #quiz {
+            background-color: #c4f7ef; /* White */
+            color: #000000; /* Black text */
+            text-align: center;
+        }
+
+        /* Joke Section Color (Light Green) */
+        #joke {
+            background-color: #d9f9d9; /* Light Green */
+            text-align: center;
+        }
+
+        /* Card Styles */
+        .card {
+            border: 1px solid #ddd;
+            padding: 15px;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            background-color: #fff;
+        }
+
+        .card img {
+            width: 50%; /* Adjust this percentage to make the image smaller */
+            height: auto;
+            margin: 0 auto;
+            display: block;
+        }
+
+        /* Results and Buttons */
+        .button {
+            margin: 5px;
+            padding: 10px 20px;
+            background-color: #e74c3c;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        .button:hover {
+            background-color: #c0392b;
+        }
+
+        .results {
+            margin-top: 20px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation Bar -->
+    <nav>
+        <button onclick="showSection('home')">Home</button>
+        <button onclick="showSection('menu')">Menu</button>
+        <button onclick="showSection('quiz')">Quiz</button>
+        <button onclick="showSection('joke')">Joke</button>
+    </nav>
+
+    <!-- Home Section -->
+    <section id="home">
+        <h1>Welcome to Zomato Food Delivery</h1>
+        <p>Order your favorite meals from the best restaurants.</p>
+        <br>
+        <img src=" https://couponswala.com/blog/wp-content/uploads/2020/07/zomato-online-order-696x392.jpg">
+    </section>
+
+    <!-- Menu Section -->
+    <section id="menu">
+        <div class="card">
+            <img src="https://content.jdmagicbox.com/comp/barnala/z6/9999p1679.1679.190911024953.c4z6/catalogue/crispy-pizza-cafe-tapa-barnala-pizza-outlets-46mxfj9w42.jpg" alt="Pizza">
+            <h3>Pizza</h3>
+            <p>$12.99</p>
+            <button class="button">Order Now</button>
+        </div>
+        <div class="card">
+            <img src="https://static.vecteezy.com/system/resources/previews/019/023/604/non_2x/front-view-tasty-meat-burger-with-cheese-and-salad-free-photo.jpg" alt="Burger">
+            <h3>Burger</h3>
+            <p>$8.99</p>
+            <button class="button">Order Now</button>
+        </div>
+        <div class="card">
+            <img src="https://wallpaperbat.com/img/12860-pasta-wallpaper-top-free-pasta-background.jpg" alt="Pasta">
+            <h3>Pasta</h3>
+            <p>$10.99</p>
+            <button class="button">Order Now</button>
+        </div>
+    </section>
+
+    <!-- Quiz Section -->
+    <section id="quiz">
+        <h2>What's Your Favorite Cuisine?</h2>
+        <p>Choose one of the following cuisines to help us recommend the perfect dish for you!</p>
+        <button class="button" onclick="checkAnswer('Italian')">Italian</button>
+        <button class="button" onclick="checkAnswer('Indian')">Indian</button>
+        <button class="button" onclick="checkAnswer('Chinese')">Chinese</button>
+        <button class="button" onclick="checkAnswer('Mexican')">Mexican</button>
+
+        <p class="results" id="quiz-result"></p>
+    </section>
+
+    <!-- Joke Section -->
+    <section id="joke">
+        <h2>Need a Laugh?</h2>
+        <button class="button" onclick="fetchJoke()">Get a Joke</button>
+        <p id="joke-text">Click the button for a random joke!</p>
+    </section>
+
+    <script>
+        // Function to show the selected section and hide the others
+        function showSection(sectionId) {
+            // Hide all sections
+            const sections = document.querySelectorAll('section');
+            sections.forEach(section => section.style.display = 'none');
+            
+            // Show the selected section
+            const selectedSection = document.getElementById(sectionId);
+            selectedSection.style.display = 'block';
+        }
+
+        // Quiz logic
+        function checkAnswer(cuisine) {
+            let result = document.getElementById('quiz-result');
+            let description = '';
+            switch (cuisine) {
+                case 'Italian':
+                    description = "You must love Italian cuisine! Pizza and pasta are the staples of this cuisine.";
+                    break;
+                case 'Indian':
+                    description = "Indian food is known for its rich flavors and spices. How about trying a Biryani?";
+                    break;
+                case 'Chinese':
+                    description = "Chinese food brings together a mix of flavors from sweet to salty. Try some tasty Dim Sum!";
+                    break;
+                case 'Mexican':
+                    description = "Mexican cuisine is full of bold flavors with tacos, burritos, and more!";
+                    break;
+                default:
+                    description = "Please choose a cuisine!";
+            }
+            result.textContent = description;
+        }
+
+        // Fetch a random joke from an API
+        async function fetchJoke() {
+            const jokeApi = "https://official-joke-api.appspot.com/random_joke";
+            const response = await fetch(jokeApi);
+            const data = await response.json();
+            const jokeText = document.getElementById('joke-text');
+            jokeText.innerHTML = `${data.setup} <br><strong>${data.punchline}</strong>`;
+        }
+
+        // Show the home section by default
+        window.onload = function() {
+            showSection('home');
+        };
+    </script>
+
+</body>
+</html>
