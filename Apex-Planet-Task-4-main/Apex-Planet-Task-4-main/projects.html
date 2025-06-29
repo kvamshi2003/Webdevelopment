@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CHAITANYA PATNANA- Projects</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="navbar-links">
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="projects.html">Projects</a>
+        </div>
+    </nav>
+
+    <!-- Projects Section -->
+    <section id="projects">
+        <p><h2>Projects</p></h2>
+        <div id="projects-container">
+            <div class="project" onclick="showProjectDetails('Heart Disease Prediction', 'Under this internship I utilized powerful stack including python, Jupyter Notebook, and IBMWatson studios collaborative environment for doing data analysis and derive actionable insights by developing a heart disease prediction machine learning project..')">
+                <div class="project-title">Heart Disease prediction</div>
+            </div>
+            <div class="project" onclick="showProjectDetails('Netflix Clone', 'To Build a Netflix Webapplication Using Html,Css,JavaScript Technlogies.')">
+                <div class="project-title">Netflix Clone</div>
+            </div>
+            <div class="project" onclick="showProjectDetails('Interactive Weather Application', 'Developed using HTML, CSS, JavaScript, and OpenMapAPI for fetching real-time weather data.')">
+                <div class="project-title">Interactive Weather App</div>
+            </div>
+            <div class="project" onclick="showProjectDetails('Music WebApplication', 'I have developed a music webapplication Utilized HTML, CSS, Django framework, and SQL for the front-end and back-end we use database management.')">
+                <div class="project-title">Music Web Application</div>
+            </div>
+        </div>
+        <!-- Button to add a new project -->
+        <button class="add-project-btn" onclick="showAddProjectForm()">Add New Project</button>
+
+        <!-- Project Detail Card -->
+        <div id="project-detail-container" class="project-detail-container">
+            <div class="project-detail-card">
+                <h3 id="project-title"></h3>
+                <p id="project-description-detail"></p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 Chaitanya Patnana. All Rights Reserved.</p>
+    </footer>
+    <script src="scripts.js"></script>
+</body>
+</html>
